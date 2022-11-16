@@ -1,0 +1,62 @@
+
+
+<html>
+<head>
+</head>
+<body>
+<center>
+<table bgcolor="orange" border>
+<?php
+/*
+Teniendo un array como el siguiente realizar una pÃ¡gina php para pintar el horario dentro de una tabla.
+
+$horario = [
+    0 => ["DWES", ....]
+    1 => ["DWES", ...]
+    "dias" => ["Lunes", "Martes", "MiÃ©rcoles", "Jueves", "Viernes"]
+]
+
+*/
+$horario = [
+    0 => ["DWEC","ITGS","DIW","EIE","DWES"],
+    1 => ["DWEC","DAW","DIW","DAW","DWES"],
+	2 => ["DWEC","DAW","DIW","DAW","DWES"],
+	3 => ["recreo", "recreo","recreo","recreo","recreo"],
+	4 => ["EIE", "DIW", "DWES", "DWES", "DWEC"],
+	5 => ["EIE", "DIW", "DWES", "DWES", "DWEC"],
+	6 => ["ITGS", "DIW", "DWES", "DWES", "DWEC"],
+    "dias" => ["Lunes","Martes","MiÃ©rcoles", "Jueves", "Viernes"],
+	//"horas"=>["1","2","3","4","5","6","7"]
+	
+];
+echo "<tr>";
+	for($j=0;$j<count($horario['dias']);$j++){
+		echo "<th>";
+		echo $horario['dias'][$j];
+		echo "</th>";
+	}
+	echo "</tr>";
+	
+	/*for($i=0;$i<7;$i++){
+		echo "<td>";
+		echo $horario['horas'][$i];
+		echo "<td>";
+		*/
+		for($i=0;$i<7;$i++){ //pon 7 filas
+		echo"<tr>";
+		for ($a=0;$a<count($horario[$i]);$a++){ //cada una con el numero de coumnas correspondiente
+			echo "<td>";
+			echo $horario[$i][$a];
+			echo "</td>";
+			
+		}
+		echo "</tr>";
+		
+	}
+	
+
+?>
+</table>
+</center>
+</body>
+</html>
