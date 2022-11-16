@@ -1,0 +1,24 @@
+<html>
+<head>
+</head>
+<body>
+<center>
+<table bgcolor="pink" border>
+<?php 
+$array=array("igts","eie","diw","dwec","dwes","daw");
+echo "<tr>";
+echo"<th> indice </th>";
+echo "<th> valor </th>";
+echo"</tr>";
+array_pop($array);
+while ($volcado=each($array)) {
+	echo"<tr>";
+	echo "<td> $volcado[0] </td>";
+	echo "<td> $volcado[1] </td>";
+	echo"</tr>";
+}
+?>
+<table>
+</center>
+</body>
+</html>
