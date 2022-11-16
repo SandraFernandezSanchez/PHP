@@ -1,0 +1,13 @@
+<?php 
+        function generarArray($numValores=10,$max=10,$min=0){
+	$array=[];
+            for ($i=0; $i < $numValores; $i++) { 
+            $array[$i]=mt_rand($min,$max);
+        }
+             return $array;
+    }
+
+    print_r(generarArray());//como no le paso parametros usa los de defecto de la funcion
+    print_r(generarArray(7,5,4));
+
+?>
