@@ -1,0 +1,67 @@
+<?php
+    /**
+     *  Ejercicio 1 con un array map
+     */       
+    $personas = [
+        ["Jorge", 1],
+        ["Bea", 0],
+        ["Paco", 1],
+        ["Amparo", 0]
+    ];
+	function formalidad ($arraypeque){ //recorre cada array chiquitin
+		if($arraypeque[1]==1){ //si en la posicion 1 de cada array peque
+			return "seÃ±or " . $arraypeque[0];//aÃ±ade a palabra seÃ±or en la posicion 0 de cada array pequeÃ±o
+		}else{
+			return "seÃ±ora " . $arraypeque[0];	
+		
+	}
+	}
+	$resultado=array_map('formalidad', $personas);
+	
+
+/**
+     * Ejercicio 2 con un array reduce calcula el total de calorias
+     */
+    $comida = [
+        ["Banana", 3, 56],
+        ["Chuleta", 1, 256],
+        ["Pan", 1, 90]
+    ];
+	
+	function calcularCalorias($acumulador, $valor){// valor es cada array pequeÃ±o
+	$acumulador+=$valor[1]*$valor[2];
+	return $acumulador;
+		
+	}
+	$totalCalorias=array_reduce($comida, 'calcularCalorias');
+	
+
+/**
+     * Ejercicio 3 saca un listado de mujeres y otro de hombres con todos los datos del ejercicio 1
+     */
+	 function hombres($arraypeque){
+		 return $arraypeque[1]==1;
+	 }
+	 $listadoHombres=array_filter($personas, 'hombres');
+	 function mujeres($arraypeque){
+		 return $arraypeque[1]==0;
+	 }
+	 $listadoMujeres=array_filter($personas,'mujeres');
+	 
+	 ?>
+	 
+	 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p><?= print_r($resultado) ?></p>
+    <p>El total de calorÃ­as es: <?= $totalCalorias ?></p>
+    <p>Los hombres son: <?php print_r($listadoHombres) ?></p>
+    <p>Las mujeres son: <?= print_r($listadoMujeres) ?></p>
+</body>
