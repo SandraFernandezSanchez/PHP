@@ -1,0 +1,17 @@
+<?php
+
+require_once('Usuario.php');
+
+
+class UsuarioP extends Usuario{
+	
+public function __construct($nombre,$apellidos,$deporte){
+	parent::__construct($nombre,$apellidos,$deporte);
+$this->maxnivel=3;
+}
+function imprimirInfo(){
+        echo "[premium]";
+        parent::imprimirInfo();
+    }
+}
+?>
