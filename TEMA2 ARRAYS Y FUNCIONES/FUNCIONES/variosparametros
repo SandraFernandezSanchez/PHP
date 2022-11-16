@@ -1,0 +1,69 @@
+<?php
+
+//si son enteros, double o string se modifica
+function modificarArr(...$arr){
+	$cont=2;
+    foreach($arr as &$value){
+        if (gettype($value) == "integer") {
+            $value = pow($value,$cont);
+            $cont++;
+        }else if (gettype($value) == "string"){
+            for($i = 0;$i < strlen($value);$i++){
+                if(!esMayus($value[$i])){
+                    $value[$i] = strtoupper($value[$i]);
+                }else{
+                    $value[$i] = strtolower($value[$i]);
+                }
+            }
+        }else if (gettype($value) == "float"){
+            $value *= -1;
+        }
+    }
+	return $arr;
+}
+
+
+function esMayus($a){
+
+    $resul;
+
+    if($a == strtoupper($a)){
+        $resul = true;
+    }else{
+		$resul=false;
+	}
+
+    return $resul;
+
+}
+
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej 11</title>
+    <style>
+        body{
+            background-color: lightgray;
+        }
+        p{
+            text-align: center;
+            color:red;
+        }
+        span{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <?php 
+        
+		print_r(modificarArr(3, "hOlA", 'hola', 4, 5, [1], "PEPE"));
+		
+    ?>
+</body>
+</html>
