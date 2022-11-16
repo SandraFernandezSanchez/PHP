@@ -1,0 +1,44 @@
+<?php
+$coso = 10;
+function piramide($coso){ // no se ejecuta esto, sino que se fija coso y va al html y cuando llama a la funcion viene aqui
+        for($i=1;$i<=$coso;$i++){
+            echo "<p style='background-color:rgb( " . rand(1,300) . " ," . rand(1,300) . ", " . rand(1,300) . " );'>";
+            for($j=1;$j<=$i;$j++){echo "*";}
+            echo "</p>";
+        }
+        for($i=$coso;$i>=0;$i--){
+            echo "<p style='background-color:rgb( " . rand(1,300) . " ," . rand(1,300) . ", " . rand(1,300) . " );'>"; 
+            for($j=1;$j<=$i;$j++){echo "*";}
+            echo "</p>";
+        }
+}
+?>
+<html>
+    <head>
+        <title></title>
+        <style>
+            div{
+                width:500px;
+                margin:0 auto;
+            } 
+            p{
+                margin:0;
+                text-align:center;
+                animation:mover 1s infinite;
+                text-shadow: 2px 1px 3px grey;
+                font-size:1.2rem;
+            }
+            @keyframes mover {
+                0%{letter-spacing:0px;}
+                50%{letter-spacing:20px;}
+                100%{letter-spacing:0px;} 
+            }
+        </style>
+    <body>
+        <div>
+       <?php 
+            piramide($coso);
+       ?>
+       </div>
+    </body>
+</html>
