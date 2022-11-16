@@ -1,0 +1,30 @@
+<?php
+
+if(isset($_GET['N'])){
+$N=$_GET['N'];
+for ($i=1;$i<=$N;$i++){
+    for ($j=1;$j<=$i;$j++){
+        print "* ";
+    }
+    print "<BR>\n ";
+}
+}else {
+	$N=0;
+}
+?> 
+
+<html>
+    <head>
+        <title></title>
+	</head>
+		
+		<body>
+		
+		<form action="piramidetriangulo.php" method="get">
+		introduce un nÃºmero para la altura de la pirÃ¡mide triangular: <input type="text" name="N" value=<?=$N?> >
+		
+		</form>
+		
+		
+</body>
+</html>
