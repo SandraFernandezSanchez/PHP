@@ -1,0 +1,40 @@
+<?php
+
+$usuarios = [
+	"jorge" => "1234",
+	"amparo" => "admin",
+	"mary" => " "
+	];
+	
+function caminar($valor, $indice){
+echo $indice . " ".  $valor;
+echo "<br>";
+}
+array_walk($usuarios,'caminar');
+
+function vacios($val){
+	return $val==" ";
+}
+$sincontra=array_filter($usuarios,'vacios');
+print_r($sincontra);
+/*
+$new=array_map('nueva',$sincontra);
+function nueva ($valor){
+	$valor="tmp22";
+	return $valor;
+}
+print_r($new);
+
+$usuarios2=array_replace($usuarios,$new);
+print_r($usuarios2);
+*/
+
+array_walk($sincontra,"cambiarcontra");
+function cambiarcontra(&$valor,$ind){
+		$valor="tmp22";
+}
+print_r($sincontra);
+$usuarios2=array_replace($usuarios,$sincontra);
+print_r($usuarios2);
+
+?>
