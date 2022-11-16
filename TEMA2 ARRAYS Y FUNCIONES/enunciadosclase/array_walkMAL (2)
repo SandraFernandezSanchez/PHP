@@ -1,0 +1,29 @@
+<?php
+
+
+
+$personas = [
+    ["Jorge", 1],
+    ["Bea", 0],
+    ["Paco", 1],
+    ["Amparo", 0],
+];
+
+  
+function mister($valor,$clave){
+  $array=array();
+    if($valor[1]==0){
+        $new= "Sra " .$valor[0]."\n";
+		array_push($array,$new);
+    }else{
+		$new="Sr " .$valor[0]."\n";
+		array_push($array,$new);
+}
+
+
+}
+
+$presentacion=array_walk($personas, 'mister');
+
+
+?>
