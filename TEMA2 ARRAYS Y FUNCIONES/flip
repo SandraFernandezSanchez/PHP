@@ -1,0 +1,7 @@
+
+<?php
+$my_array = ['foo' => 1, 'hello' => 'world'];
+$allowed  = ['foo', 'bar'];
+$new=array_intersect_key($my_array, array_flip($allowed));
+print_r($new);
+?>
