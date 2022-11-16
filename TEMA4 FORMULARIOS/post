@@ -1,0 +1,14 @@
+<?php
+
+
+ 
+foreach($_POST as $k  => $v){
+	echo $k;
+	echo "<br>";
+	echo $v;
+	echo "<br>";
+}
+
+
+
+?>
