@@ -1,0 +1,18 @@
+<?php
+
+class BancoMaloMalisimo implements PlataformaPago {
+	
+    function estableceConexion() : bool {
+        echo "conexiÃ³n BancoMaloMalÃ­simo<br>";
+        return true;
+    }
+
+    function compruebaSeguridad() : bool {
+        echo "conexiÃ³n segura BancoMaloMalÃ­simo<br>";
+        return true;
+    }
+
+    function pagar(string $cuenta, int $cantidad) {
+        echo "pago realizado BancoMaloMalÃ­simo<br>";
+    }
+}
