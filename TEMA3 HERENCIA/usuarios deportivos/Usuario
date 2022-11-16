@@ -1,0 +1,59 @@
+<?php
+
+class Usuario{
+
+    protected $nombre;
+    protected $apellido;
+    protected $deporte;
+    protected $nivel = 0;
+    protected $puntos = 0;//CUANDO TENGA 6 SUBE DE NIVEL
+	protected $maxnivel=6;
+	protected $historico=array();
+	
+	public function __construct($nombre,$apellido,$deporte){
+		$this->nombre=$nombre;
+		$this->apellido=$apellido;
+		$this->deporte=$deporte;
+	}
+    function setNombre($nombre){$this->nombre = $nombre;}
+    function getNombre(){return $this->nombre;}
+
+    function setApellido($apellido){$this->apellido = $apellido;}
+    function getApellido(){return $this->apellido;}
+
+    function setDeporte($deporte){$this->deporte = $deporte;}
+    function getDeporte(){return $this->deporte;}
+
+    function introducirResultado($resultado){
+        if($resultado == "victoria"){
+			array_push($this->historico,"victoria");
+            $this->puntos += 1;
+            echo $this->nombre . " Ha ganado el partido <br>";
+            if($this->puntos == $this->maxnivel){
+                $this->puntos = 0;
+                $this->nivel = $this->nivel + 1;
+                echo $this->nombre . " Ha ascendido al nivel " . $this->nivel ."<br>";
+            }
+        }else if($resultado == "derrota"){
+			array_push($historico,"derrota");
+            $this->puntos -= 1;
+            echo $this->nombre . " Ha perdido el partido <br>";
+        }else{
+			array_push($historico,"empate");
+            $this->puntos = $this->puntos;
+            echo $this->nombre . " Ha empatado el partido <br>";
+        }
+    }
+
+    function imprimirInfo(){
+        echo '<p style="color:blue;">'.$this->nombre . " Puntos totales: " . $this->puntos . " Se encuentra en el nivel: " . $this->nivel.'</p>';
+		echo "<ul>";
+		foreach($this->historico as $resultado){
+			echo "<li> $resultado </li>";
+		}
+		echo "</ul>";
+	}
+}
+    
+
+?>
