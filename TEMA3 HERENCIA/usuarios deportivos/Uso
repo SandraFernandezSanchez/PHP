@@ -1,0 +1,56 @@
+<?php
+
+require('UsuarioA.php');
+require_once('Usuario.php');
+require('UsuarioP.php');
+
+$usuario1 = new Usuario("sandra","fernandez","gr");
+
+
+$usuario1->introducirResultado("victoria");
+echo "<p>" . $usuario1->imprimirInfo() . "</p>";
+
+$usuario1->introducirResultado("victoria");
+echo "<p>" . $usuario1->imprimirInfo() . "</p>";
+
+$usuario1->introducirResultado("victoria");
+echo "<p>" . $usuario1->imprimirInfo() . "</p>";
+
+$usuario1->introducirResultado("victoria");
+echo "<p>" . $usuario1->imprimirInfo() . "</p>";
+
+$usuario1->introducirResultado("victoria");
+echo "<p>" . $usuario1->imprimirInfo() . "</p>";
+
+$usuario1->introducirResultado("victoria");
+echo "<p>" . $usuario1->imprimirInfo() . "</p>";
+
+
+//$usuarioP = new UsuarioP();
+
+$usuarioP = new UsuarioP("alex","balandin","futbol");
+
+
+$usuarioP->introducirResultado("victoria");
+echo "<p>" . $usuarioP->imprimirInfo() . "</p>";
+
+$usuarioP->introducirResultado("victoria");
+echo "<p>" . $usuarioP->imprimirInfo() . "</p>";
+
+$usuarioP->introducirResultado("victoria");
+echo "<p>" . $usuarioP->imprimirInfo() . "</p>";
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+</body>
+</html>
