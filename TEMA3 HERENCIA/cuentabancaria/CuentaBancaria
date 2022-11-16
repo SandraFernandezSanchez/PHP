@@ -1,0 +1,92 @@
+<?php
+
+class CuentaBancaria {
+
+    private static $numeroCuenta = 100001;
+    private $nombre;
+    private $saldo;
+	private $numCuenta;
+
+    function __construct(string $nombre="anonimo", float $saldo = 0) { // hay que poner tipos
+        $this->numCuenta=self::$numeroCuenta++; //porque es static
+        $this->nombre = $nombre;
+        $this->saldo = $saldo;
+    }
+
+    function ingresar(float $cantidad) {
+        $this->saldo += $cantidad;
+    }
+
+    function retirar(float $cantidad) {
+        $this->saldo-=$cantidad;
+    }
+
+    function saldo() {
+        return $this->saldo;
+    }
+
+    function transferir($cuenta, float $cantidad) {
+        $this->saldo -= $cantidad;//porque cuando pongo pringado.tranferir el es el que pierde asi que this.saldo
+        $cuenta->saldo += $cantidad; //a la cuenta a la que vaya destinado el saldo digo que su saldo ha aumentado
+    }
+
+    function unir($cuenta) {
+        $this->saldo += $cuenta->saldo;
+        $cuenta->saldo = 0;
+        $cuenta->numCuenta = -1;
+    }
+
+    function bancaRota() {
+        $this->saldo = 0;
+    }
+
+    function mostrar() {
+        return "<div class='cuenta'><span class='numero__cuenta'>Datos de la cuenta: ".$this->numCuenta."</span><br><span class='titular'>Titular: ".$this->nombre."</span><br><span class='saldo'>Saldo: ".$this->saldo."</span></div>";
+    }
+}
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clases y objetos php</title>
+    <style>
+        * {
+            font-family: Arial;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h2>Clase CuentaBancaria</h2>
+        <?php 
+            $cuenta1 = new CuentaBancaria('Milloneti', 1000000);
+            $cuenta2 = new CuentaBancaria('Agapito', 30345);
+            $cuenta3 = new CuentaBancaria('PobretÃ³n', 10000);
+
+            for($i = 0; $i < 100; $i++) {
+                $cuenta1->retirar(1000);
+            }
+            
+            $cuenta2->ingresar(1200);
+
+            print "Cuenta 1: ".$cuenta1->saldo()."<br>Cuenta 2: ".$cuenta2->saldo()."<br>Cuenta 3: ".$cuenta3->saldo()."<br>";
+
+            $cuenta3->unir($cuenta1);
+
+            $cuenta2->transferir($cuenta1, ($cuenta2->saldo())/2);
+        ?>
+        <br>
+        <?= $cuenta1->mostrar() ?>
+        <br>
+        <?= $cuenta2->mostrar() ?>
+        <br>
+        <?= $cuenta3->mostrar() ?>
+    </section>
+</body>
+</html>
+
+
