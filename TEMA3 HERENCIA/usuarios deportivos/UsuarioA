@@ -1,0 +1,23 @@
+<?php
+
+require_once('Usuario.php');
+
+Class UsuarioA extends Usuario{
+	
+	public function __construct($nombre,$apellidos,$deporte,$maxnivel){
+	parent::__construct($nombre,$apellidos,$deporte);
+	
+
+}
+
+    function crearPartido(){
+        echo "Partido creado por [Admin]<br>";
+    }
+
+    function imprimirInfo(){
+        echo "[ADMIN]";
+        parent::imprimirInfo();
+    }
+}
+
+?>
