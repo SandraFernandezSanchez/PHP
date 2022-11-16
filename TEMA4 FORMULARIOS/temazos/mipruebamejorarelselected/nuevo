@@ -1,0 +1,78 @@
+<?php
+echo date("h:i:s");
+$minutos=[0,15,30,45];
+$hora=date("h");
+$min=date("i");
+$temazo="";
+
+
+$errores=[];
+
+if(isset($_POST['enviar'])) {
+
+if(isset($_POST['temazo']) && $_POST['temazo'] == "" ||  $_POST['temazo'] == " "){ 
+$errores['temazo']="no puede estar vacio";
+}else{
+$temazo=$_POST['temazo'];
+}
+
+if(isset($_POST['hora']) && $_POST['hora'] == "" ){
+$errores['hora']="no puede estar vacio";
+}else{
+$hora=$_POST['hora'];
+}
+
+if(isset($_POST["min"]) && $_POST['min'] == ""){
+$errores['min']="no puede estar vacio";
+}else{
+$min=$_POST['min'];
+}
+
+
+
+
+if(isset($_POST['enviar']) && count($errores) == 0){ //si no hay errores
+
+file_put_contents("temazos.csv","$temazo,$hora,$min /n", FILE_APPEND);//SI NO HAY ERRORES SE ENVIA AL CSV
+header("Location: listado.php");
+ 
+}
+
+}else{
+?>
+
+<html>
+<head>
+</head>
+<body>
+
+
+<h1> party </h1>
+
+
+<form action="" method="post">
+Temazo <input type="text" name="temazo" placeholder="pon tu temazo">
+<?php
+if($min>45){$hora=++$hora;}
+?>
+H <input type="number" name="hora" value=<?=$hora?>>
+min <select name="min">
+<?php
+function mayores($value) {
+	return $value>$min;
+}
+$mayores=array_filter($minutos,'mayores');
+$mayor=array_shift($mayores);
+foreach($minutos as $value){
+	$sel=($min<45 && $value==$mayor)?'selected':'';
+	
+
+echo "<option value=$value $sel> $value </option>";
+}
+?>
+ <input type="submit" name="enviar">
+ 
+ </form>
+<?php } ?>
+</body>
+</html>
