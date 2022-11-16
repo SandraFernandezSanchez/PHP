@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej 8</title>
+</head>
+<body>
+
+<!--Crea una funciÃ³n que genere un array asociativo que
+ contenga tipo=>valor
+-->
+    <?php
+        function crearArray15(...$varArgs){
+            $array=[];
+			
+			
+            foreach ($varArgs as  $value) {
+				//$array[gettype($primer)]=$primer;
+                $array[gettype($value)]=$value;
+               
+            }
+            return $array;
+        }
+        print_r(crearArray15('hola',2,"pez",4.8,[1,2,3,4]));
+
+    ?>
+    
+</body>
+</html>
