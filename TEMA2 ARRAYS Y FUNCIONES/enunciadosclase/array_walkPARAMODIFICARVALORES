@@ -1,0 +1,35 @@
+<?php
+/*
+
+function cambiar($valor){
+	if($valor=="23"){
+		$valor=["blanco","negro"];
+		return $valor;
+	}else if($valor=="26"){
+		$valor="25";
+		return $valor;
+	}
+	
+}
+$personas=["25","26","23","20","23"]; 
+
+//primero que me de la clave de los que tienen 23
+
+$final=array_map($personas,'cambiar');
+
+print_r($final);
+*/
+$personas=["25","26","23","20","23"];
+function cambiar2(&$valor,$indice){
+	if($valor=="23"){
+		$valor=["blanco","negro"];
+		
+	}
+	
+}
+array_walk($personas,'cambiar2');
+
+print_r($personas);
+?>
+
+
