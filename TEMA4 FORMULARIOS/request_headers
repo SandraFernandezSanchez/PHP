@@ -1,0 +1,16 @@
+<?php
+
+
+
+
+
+$peti=apache_request_headers();
+
+foreach ($peti as $clave => $valor){
+	echo "$clave: $valor <br>";
+	
+}
+
+
+
+?>
