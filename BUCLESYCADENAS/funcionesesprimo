@@ -1,0 +1,19 @@
+<?php 
+function esPrimo($n){
+    if ($n == 0 || $n == 1){
+        return true;
+    } else {
+        $esprimo = true;
+		$i=2;
+        while($esprimo && $i<$n) {
+			if ($n%$i==0) {
+			$esprimo=false;	
+			}
+			$i++;
+        
+    }
+	
+}
+return $esprimo;
+}
+?>
