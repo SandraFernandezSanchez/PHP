@@ -1,0 +1,31 @@
+<?php
+
+    
+
+    $primo = false;
+
+    function esPrimo($numero){
+        for($i = 2; $i < $numero; $i++){
+            if(($numero % $i) == 0){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    do{
+
+        $numero = rand(1,100);
+
+        if(esPrimo($numero)){
+            $primo = true;
+			echo "<span> el numero primo es $numero </span> <br>";
+        }else{
+            $primo = false;
+            echo "<span> $numero </span> <br>";
+        }
+
+    }while($numero != 17 && $primo == false)
+    
+    
+?>
