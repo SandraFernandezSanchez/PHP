@@ -1,0 +1,24 @@
+<html>
+<head>
+	<title>matrices con foreach </title>
+</head>
+<body>
+<center>
+<table border="1">
+<tr bgcolor="grey">
+<th>clave</th>
+<th>valor</th>
+</tr>
+<?php 
+$array=array(1=>"primavera",3=>"verano",5=>"otoÃ±o",7=>"invierno");
+foreach($array as $clave => $valor){ // por cada estacion muestrame una linea con dos td
+	echo "<tr>";
+	echo "<td> $clave </td>";
+	echo "<td> $valor </td>";
+	echo "</tr>";
+}
+?>
+</table>
+</center>
+</body>
+</html>
