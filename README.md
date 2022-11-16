@@ -1,4 +1,4 @@
-github nacho,dani fernandez y jason y mario 
+
 
 Jitsi meet para conectarnos y compartir pantalla
 Github jorgeduenaslerin
