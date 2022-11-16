@@ -1,0 +1,25 @@
+<?php
+if (isset($_GET['palabra'])){
+$palabra=$_GET['palabra'];
+
+$parrafo="En la dÃ©cada de 1920 Satyendra Nath Bose y Albert Einstein publican conjuntamente un artÃ­culo cientÃ­fico acerca de los fotones de luz y sus propiedades Bose describe ciertas reglas para determinar si dos fotones deberÃ­an considerarse idÃ©nticos o diferentes Esta se llama la condensado de Bose - Einstein Einstein aplica estas reglas a los Ã¡tomos preguntÃ¡ndose cÃ³mo se comportarÃ­an los Ã¡tomos de un gas si se les aplicasen estas reglas";
+$array=explode(" ",$parrafo);//paso el parrafo a un array para recorrerlo
+function buscar($palabra,$array){
+if (in_array($palabra,$array)){
+	$indice=array_search($palabra,$array);
+	echo $array[$indice-1] . " " .$palabra. " ". $array[$indice+1];
+}
+}
+}
+?>
+
+<html>
+<head>
+</head>
+<body>
+<form action="in_array.php" method="get">
+introduce una palabra: <input type="text" id="palabra" name="palabra"></input>
+<p> la frase serÃ­a: <?=buscar($palabra,$array);?> </p>
+</form>
+</body>
+</html>
