@@ -1,0 +1,47 @@
+<?php
+
+    $random1 = rand(1,100);
+    $random2 = rand(1,100);
+    $random3 = rand(1,100);
+
+if ($random1>$random2 && $random1> $random3) {
+	if ($random2>$random3) {
+	$mayor=$random1;
+	$mediano=$random2;
+	$pequeÃ±o=$random3;
+	echo "<h1> $mayor es mayor que $mediano y este es mayr que $pequeÃ±o </h1>";
+	}else{
+	$mayor=$random1;
+	$mediano=$random3;
+	$pequeÃ±o=$random2;
+	echo "<h1> $mayor es mayor que $mediano y este es mayr que $pequeÃ±o </h1>";
+	}
+}else if ($random2>$random1 && $random2> $random3) {
+if ($random1>$random3) {
+$mayor=$random2;
+$mediano=$random1;
+$pequeÃ±o=$random3;
+echo "<h1> $mayor es mayor que $mediano y este es mayr que $pequeÃ±o </h1>";
+}else{
+$mayor=$random2;
+$mediano=$random3;
+$pequeÃ±o=$random1;
+echo "<h1> $mayor es mayor que $mediano y este es mayr que $pequeÃ±o </h1>";
+}
+}else if ($random3>$random1 && $random3> $random2) {
+if ($random1>$random2) {
+$mayor=$random3;
+$mediano=$random1;
+$pequeÃ±o=$random2;
+echo "<h1> $mayor es mayor que $mediano y este es mayr que $pequeÃ±o </h1>";
+}else{
+$mayor=$random3;
+$mediano=$random2;
+$pequeÃ±o=$random1;
+echo "<h1> $mayor es mayor que $mediano y este es mayr que $pequeÃ±o </h1>";
+}
+
+}
+
+?>
+
