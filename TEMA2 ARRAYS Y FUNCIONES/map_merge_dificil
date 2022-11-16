@@ -1,0 +1,37 @@
+
+<?php
+
+$apartamentos = [
+    [
+        'precio/noche' => 40,
+        'ciudad' => 'Valencia',
+        'wifi' => True,
+        'pagina web' => 'https://hotel.com'
+    ],
+    [
+        'precio/noche' => 87,
+        'ciudad' => 'Calpe',
+        'wifi' => True,
+        'pagina web' => 'https://calpe.com'
+    ],
+    [
+        'precio/noche' => 67,
+        'ciudad' => 'Valencia',
+        'wifi' => False,
+        'pagina web' => 'https://denia.com'
+    ],
+    [
+        'precio/noche' => 105,
+        'ciudad' => 'Benidorm',
+        'wifi' => False,
+        'pagina web' => 'https://benidorm.com'
+    ]
+];
+
+$apartamentosMasBaratos = array_map(function ($apartamento) {
+    return array_merge($apartamento, ['precio/noche' => $apartamento['precio/noche'] - 1]);
+}, $apartamentos);
+
+var_dump($apartamentosMasBaratos);
+
+?>
