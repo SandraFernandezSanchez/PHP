@@ -1,0 +1,51 @@
+<?php
+foreach($_SERVER as $clave => $valor){
+	
+	echo "$clave:$valor <br>";
+}
+
+echo"<hr>";
+
+$idioma=explode(",",$_SERVER['HTTP_ACCEPT_LANGUAGE'])[0]; //$_SERVER es un array pero en esa posicion contiene una cadena
+$ip = $_SERVER['REMOTE_ADDR'];
+$sop = explode(';',$_SERVER['HTTP_USER_AGENT'])[1];
+print_r($_GET);
+
+
+?>
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<form method="get" action="miprueba_get.php">
+
+<input type="text" name="texto">
+<input type="submit" value="enviar">
+
+</form>
+
+<?php
+
+if($idioma=="en-US"){
+    echo "This is in English";
+        }elseif($idioma=="es-ES"){
+            echo "Esto es espaÃ±olo <br>";
+}
+
+echo "tu ip es $ip <br>";
+echo "tu sistema operativo es $sop";
+
+
+
+?>
+
+</body>
+</html>
