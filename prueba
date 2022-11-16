@@ -1,0 +1,45 @@
+
+
+
+<?php 
+$yo = [
+    "Nombre" => "Jorge DueÃ±as LerÃ­n",
+    "DirecciÃ³n" => "Calle falsa nÃºmero 1234",
+    "TelÃ©fono" => "91 123 45 67",
+    "PoblaciÃ³n" => "Madrid",
+    "Edad" => 23,
+];
+
+function generarFormulario($valor,$clave) { ?>
+    <form method="post" action="prueba.php">
+        <?php if(is_string($valor)) { ?>
+            <label for="<?= $clave ?>"><?= $clave ?></label><br>
+            <input type="text" name="<?= $clave ?>" id="<?= $clave ?>" value="<?= $valor ?>"><br><br>
+        <?php } else if(is_int($valor)) { ?>
+            <label for="<?= $clave ?>"><?= $clave ?></label><br>
+            <input type="number" name="<?= $clave ?>" id="<?= $clave ?>" value="<?= $valor ?>" min=0><br><br>
+        <?php } ?>
+    </form>
+<?php } ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej 12</title>
+    <style>
+        body {
+            background-color: lightgrey;
+        
+    </style>
+</head>
+<body>
+               <div id="formulario">
+                    <?php array_walk($yo, "generarFormulario"); ?>
+                </div>
+            
+</body>
+</html>
+
