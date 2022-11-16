@@ -1,0 +1,25 @@
+<html>
+<head>
+</head>
+<body>
+<center>
+<table bgcolor="blue" border>
+<?php 
+$array=array("a","b","c","d");
+echo "<tr>";
+echo"<th> indice </th>";
+echo "<th> valor </th>";
+echo"</tr>";
+do{
+	$i=key($array) ;//hay que volcarlo en variables 
+	$v=current($array) ;
+	echo "<tr>";
+	echo "<td> $i</td>";
+	echo "<td> $v</td>";
+	echo "</tr>";
+}while(next($array));
+?>
+<table>
+</center>
+</body>
+</html>
