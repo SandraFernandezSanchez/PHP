@@ -1,0 +1,43 @@
+<?php
+    require('Coche.php');
+    require('CocheCargado.php');
+    require('CocheConRemolque.php');
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>coches</title>
+    <style>
+        * {
+            font-family: Arial;
+        }
+    </style>
+</head>
+<body>
+    
+        <?php
+            $bmw = new Coche(1000, 'BMW', 30);
+            $renault = new CocheConRemolque(1001, 'Renault', 30, 200);
+            $porche = new Coche(1002, 'Porche', 40);
+            $fordGrua = new CocheCargado(1003, 'Ford', 20, $porche);
+            $cocheRemolque= new CocheConRemolque (1005,'nissan',22, 250);
+			$kiaGrua= new CocheCargado (1007,'kia',30,$cocheRemolque);
+            $coches = [
+                $bmw,
+                $renault,
+                $fordGrua,
+				$kiaGrua
+            ];
+
+            array_walk($coches, function ($coche) {
+                echo $coche->pintarInformacion()."<br>";
+            });//aqui hay polimorfismo porque me da igual que tipo de coche eres que llamo al mismo mensaje a todos
+
+        ?>
+    
+</body>
+</html>
