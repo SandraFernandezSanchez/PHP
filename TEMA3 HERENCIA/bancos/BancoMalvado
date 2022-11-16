@@ -1,0 +1,21 @@
+
+<?php
+
+class BancoMalvado implements PlataformaPago {
+   
+
+    function estableceConexion() {
+        echo "conexiÃ³n BancoMalvado<br>";
+        
+    }
+
+    function compruebaSeguridad() : bool {
+        echo "conexiÃ³n segura BancoMalvado<br>";
+        return true;
+    }
+
+    function pagar(string $cuenta, int $cantidad) {
+        echo "pago realizado BancoMalvado<br>";
+    }
+}
+
