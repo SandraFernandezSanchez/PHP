@@ -1,0 +1,25 @@
+<html>
+<head>
+</head>
+<body>
+<center>
+<table bgcolor="blue" border>
+<?php 
+$array=array("a","b","c","d");
+$ind=array_keys($array);
+$val=array_values($array);
+echo "<tr>";
+echo"<th> indice </th>";
+echo "<th> valor </th>";
+echo"</tr>";
+for($i=0;$i<count($array);$i++){
+	echo"<tr>";
+	echo "<td> $ind[$i] </td>";
+	echo "<td> $val[$i] </td>";
+	echo"</tr>";
+}
+?>
+<table>
+</center>
+</body>
+</html>
