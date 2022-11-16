@@ -1,0 +1,33 @@
+<?php
+$datos=file_get_contents("temazos.csv");
+$envio=explode("/n",$datos);//["temazo,hora,min","temazo..."]
+echo "<table>";
+foreach($envio as $string){ 
+	$dato=explode(",",$string);//["temazo","hora","min"]
+	echo"<tr>";
+	foreach($dato as $campo){ //["temazo"]
+		echo "<td> $campo </td>";
+		
+	}
+	echo "</tr>";
+	
+}
+echo "</table>";
+/*$arrayenvio=explode("/n",$datos); //array con un envio por key
+//seprar datos de envio
+echo "<table>";
+foreach($arrayenvio as $string){ //recorre el array de los envios
+	$arraydatos=explode(",", $string); //por cada envio separa ls tres datos en un key cada uno
+	echo "<tr>";
+	foreach($arraydatos as $linea){
+	echo "<td> $linea </td>";
+	}
+	echo "</tr>";
+}
+echo"</table>";
+*/
+
+
+
+
+?>
