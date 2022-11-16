@@ -1,0 +1,16 @@
+<?php
+
+$my_array = array("foo" => 1, "hello" => "world");
+
+$allowed = array("foo", "bar");
+
+$new=array();
+foreach ($my_array as $clave => $valor) {
+	if (in_array ($clave,$allowed)) {
+	array_push($new, $clave);
+	}		
+	
+}
+	print_r($new);
+
+?>
