@@ -1,0 +1,49 @@
+<?php    
+	require('PlataformaPago.php');
+    require('BancoMalvado.php');
+    require('BitCoinConan.php');
+    require('BancoMaloMalisimo.php');
+    
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos Avanzados</title>
+    <style>
+        * {
+            font-family: Arial;
+        }
+    </style>
+</head>
+<body>
+        <h2>Interfaces</h2>
+    <h3>BancoMalvado</h3>
+    <?php
+    $bancoMalvado = new BancoMalvado();
+    $bancoMalvado->estableceConexion();
+    $bancoMalvado->compruebaSeguridad();
+    $bancoMalvado->pagar('Sandra', 10000);
+    ?>
+
+    <h3>Random entre entidades</h3>
+    <?php
+    $bancoBitCoin = new BitCoinConan();
+    $bancoMalisimo = new BancoMaloMalisimo();
+
+    $bancos = [$bancoMalvado, $bancoBitCoin, $bancoMalisimo];
+
+    $bancos[mt_rand(0,count($bancos)-1)]->pagar('Sandra', 10000);
+    $bancos[mt_rand(0,count($bancos)-1)]->pagar('Alex', 10000);
+    $bancos[mt_rand(0,count($bancos)-1)]->pagar('Adrian', 10000);
+    ?>
+
+    
+    
+    
+</body>
+</html>
+
