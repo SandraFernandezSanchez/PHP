@@ -1,0 +1,39 @@
+<html>
+<head>
+</head>
+<body>
+<?php
+$agenda=array(array('nombre'=>'sandra','direccion'=>'calle p','tel'=>'619588608'),array('nombre'=>'blanca','direccion'=>'calle b','tel'=>'619586708'));
+echo "<table border>";
+$datos=array_keys($agenda[0]);
+echo"<tr>";
+for($i=0;$i<count($datos);$i++){
+	echo "<td> $datos[$i] </td>";
+}
+echo"</tr>";
+for($i=0;$i<count($agenda);$i++){
+echo"<tr>";
+foreach ($agenda[$i] as $valor){
+	echo "<td> $valor </td>";
+}
+echo "</tr>";
+}
+echo "</table>";
+
+function buscaPersona($ag){
+	for($i=0;$i<count($ag);$i++){// por cada array chiquitito
+	$valores=array_values($ag[$i]);//cojo solo los valores
+	foreach ($valores as $comparar){ //por cada valor
+		if ($comparar == 'calle p') {
+			echo $valores[0];//de la lista de valores imprimo el nombre que esta en la pos 0
+		}
+	}
+	}
+}
+?>
+
+<h1> la persona que vive en calle p es <?php buscaPersona($agenda) ?> </h1>
+
+
+</body>
+</html>
