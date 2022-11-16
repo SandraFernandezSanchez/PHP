@@ -1,0 +1,60 @@
+<?php
+    /**
+     *  Ejercicio 1
+     */       
+    $personas = [
+        ["Jorge", 1],
+        ["Bea", 0],
+        ["Paco", 1],
+        ["Amparo", 0]
+    ];
+
+	function nombresFormales($array) { // el valor del array personas son cada array pequeÃ±o
+        if ($array[1]==1) { // por cada array si en la posicion 1 esta el 1
+			return "SeÃ±or " . $array[0]; //retorna seÃ±or espacio y el nombre que esta en la posicion 0
+		}else{ 
+		return "SeÃ±ora " . $array[0];
+		}
+		
+    }
+    $resultado = array_map('nombresFormales', $personas);// el array map retorna el array, a diferencia de array walk que le tienes que decir que imprima desde la funcion 
+
+    /**
+     * Ejercicio 2
+     */
+    $comida = [
+        ["Banana", 3, 56],
+        ["Chuleta", 1, 256],
+        ["Pan", 1, 90]
+    ];
+
+    $totalCalorias = array_reduce($comida, function($acumulador, $array) { // array es cada array pequeÃ±o
+        return $acumulador += $array[1] * $array[2];
+    });
+
+    /**
+     * Ejercicio 3
+     */
+    $listadoHombres = array_filter($personas, function($array) {
+        return $array[1]==1; //devuelveme todos los que en la posicion 1 esta el 1, y devuelve un array con todos los datos del original es decir indice jorge y valor 1 etc
+    });
+
+    $listadoMujeres = array_filter($personas, function($array) {
+        return $array[1]==0;
+    });
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p><?= print_r($resultado) ?></p>
+    <p>El total de calorÃ­as es: <?= $totalCalorias ?></p>
+    <p>Los hombres son: <?php print_r($listadoHombres) ?></p>
+    <p>Las mujeres son: <?= print_r($listadoMujeres) ?></p>
+</body>
