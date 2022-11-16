@@ -1,0 +1,27 @@
+
+
+<?php
+if (isset($_GET['cadena'])){
+    $cadena = $_GET['cadena'];
+    $letra = "";
+	$encontrado=false;
+	$i=0;
+			
+			
+			while ($i<strlen($cadena) && ($cadena[$i] != 'a' && $cadena[$i] != 'A')){
+				
+				echo "<h4>$cadena[$i]</h4>";
+			$i++;
+			}
+		
+}
+
+?>
+
+<body>
+<form action="calentamiento2.php" method="get">
+dime una palabra para extaer todas sus letras hasta que encuentre una a: <input type="text" name="cadena"> </input>
+
+</body>
+
+
