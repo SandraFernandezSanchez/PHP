@@ -1,0 +1,49 @@
+
+
+<html>
+<head>
+<style>
+.dias{
+	background-color:white;
+
+}
+</style>
+</head>
+<body>
+<center>
+<table bgcolor="orange" border>
+<?php
+
+$array=array(
+array("", "Lunes", "Martes" , "Miercoles", "Jueves", "Viernes"),
+array("16:00-16:55", "DWEC", "ITGS", "DIW", "EIE", "DWES"),
+array("16:55-17:50", "DWEC", "DAW", "DIW", "DAW", "DWES"),
+array("17:50-18:45", "DWEC", "DAW", "DIW", "DAW", "DWES"),
+array("18:45-19:10", "recreo", "recreo","recreo","recreo","recreo" ),
+array("19:10-20:05","EIE", "DIW", "DWES", "DWES", "DWEC"),
+array("20:05-21:00", "EIE", "DIW", "DWES", "DWES", "DWEC"),
+array("21:00-21:50", "ITGS", "DIW", "DWES", "DWES", "DWEC") 
+);
+
+
+foreach($array as $fila) {
+	echo "<tr>";
+	foreach($fila as $casilla){
+		
+		if ($casilla=="Lunes" || $casilla == "Martes" || $casilla== "Miercoles" || $casilla=="Jueves" || $casilla=="Viernes" || $casilla=="recreo"){
+			echo "<th class='dias'>"; 
+			echo $casilla;
+		}
+		else{ 
+		echo "<th>";
+		echo $casilla;
+		}
+		echo "</th>";
+	}
+	echo "</tr>";
+}
+?>
+</table>
+</center>
+</body>
+</html>
