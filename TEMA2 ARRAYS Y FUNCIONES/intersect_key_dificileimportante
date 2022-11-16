@@ -1,0 +1,23 @@
+
+<?php
+
+function hola ($v){ 
+return strlen($v)>=4; 
+}
+
+$a = array(
+  0      => "val 0", 
+  "one"  => "val one", 
+  "two"  => "val two", 
+  "three"=> "val three", 
+  "four" => "val four", 
+  "five" => "val five", 
+  "6"    => "val 6"
+); 
+
+$f = array_filter(array_keys($a),'hola'); 
+print_r($f); //devuelve un array con three, four y five con los indices conservados
+$b = array_intersect_key($a, array_flip($f));//dame los datos de a cuyas claves esten en comun con f
+print_r($b);
+
+?>
