@@ -1,0 +1,18 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+<form method="post" action="form_get.php">
+
+
+usuario: <input type="text" name="usuario" >
+contraseña: <input type="password" name="pw" >
+<input type="submit" value="enviar">
+</body>
+
+
+</html>
