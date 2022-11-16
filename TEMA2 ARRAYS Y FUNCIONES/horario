@@ -1,0 +1,35 @@
+<html>
+<head>
+</head>
+<body>
+<center>
+<table bgcolor="pink" border>
+<?php
+
+$array=array(
+array("", "Lunes", "Martes" , "Miercoles", "Jueves", "Viernes"),
+array("16:00-16:55", "DWEC", "ITGS", "DIW", "EIE", "DWES"),
+array("16:55-17:50", "DWEC", "DAW", "DIW", "DAW", "DWES"),
+array("17:50-18:45", "DWEC", "DAW", "DIW", "DAW", "DWES"),
+array("18:45-19:10", "recreo", "recreo","recreo","recreo","recreo" ),
+array("19:10-20:05","EIE", "DIW", "DWES", "DWES", "DWEC"),
+array("20:05-21:00", "EIE", "DIW", "DWES", "DWES", "DWEC"),
+array("21:00-21:50", "ITGS", "DIW", "DWES", "DWES", "DWEC") 
+);
+
+
+for($i=0;$i<count($array);$i++){
+	echo "<tr>";
+	for($j=0;$j<count($array[$i]);$j++){
+		echo "<th>";
+		echo $array[$i][$j];
+		echo "</th>";
+	}
+	echo "</tr>";
+};
+?>
+</table>
+</center>
+</body>
+</html>
+
