@@ -1,0 +1,47 @@
+<?php
+$personas = [ //recuerda que aqui el valor seria los indices y el indice seria los nombres porque solohay un array con varios valores asociados a indices
+    ["Jorge"=>1],
+    ["Bea"=>0],
+    ["Paco"=>1],
+    ["Amparo"=>0],
+];
+/*
+function formalidad ($valor, $indice){
+	$new=array();
+	if ($valor==1){
+		$valornew="seÃ±or " . $indice ;
+		array_push($new, $valornew);
+	}else{
+		$valornew="seÃ±ora " . $indice;
+		array_push($new, $valornew);
+	}
+	
+}
+
+*/
+function formalidad (&$valor,&$indice){
+	if($valor==1){
+		$valor="seÃ±or";
+	}
+			
+
+}
+
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enunciado Jorge</title>
+</head>
+<body>
+    <?php
+    array_walk_recursive($personas,'formalidad'); //recorreme el array personas 
+	print_r($personas);//aqui si pones var dump array no puede acceder al array nuevo que se creo en la funcion 
+	
+	
+    ?>
+</body>
+</html>
