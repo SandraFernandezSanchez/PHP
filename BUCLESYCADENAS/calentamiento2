@@ -1,0 +1,19 @@
+<?php
+if (isset($_GET['cadena'])){
+    $cadena = $_GET['cadena'];
+
+    for($i = 0; $i < strlen($cadena); $i++){
+        //$letra = substr($cadena,$i,1);
+		$letra=$cadena{$i};
+
+        echo "<h4>$letra</h4>";
+    }
+}else{
+?>
+
+<body>
+<form action="calentamiento2.php" method="get">
+dime una palabra para extaer todas sus letras: <input type="text" name="cadena"> </input>
+
+</body>
+<?php } ?>
