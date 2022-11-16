@@ -1,0 +1,24 @@
+
+<?php
+
+class BitCoinConan implements PlataformaPago {
+    function __construct() {
+
+    }
+
+    function estableceConexion() : bool {
+        echo "conexiÃ³n BitCoinConan<br>";
+        return true;
+    }
+
+    function compruebaSeguridad() : bool {
+        echo "conexiÃ³n segura BitCoinConan<br>";
+        return true;
+    }
+
+    function pagar(string $cuenta, int $cantidad) {
+        echo "pago realizado BitCoinConan<br>";
+    }
+}
+
+
