@@ -1,0 +1,10 @@
+<?php
+
+interface PlataformaPago {
+    public function estableceConexion();
+    public function compruebaSeguridad();
+    public function pagar(string $cuenta, int $cantidad);
+}
+
+
+?>
