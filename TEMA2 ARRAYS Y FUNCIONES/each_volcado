@@ -1,0 +1,23 @@
+<html>
+<head>
+</head>
+<body>
+<center>
+<table bgcolor="blue" border>
+<?php 
+$array=array("a","b","c","d");
+echo "<tr>";
+echo"<th> indice </th>";
+echo "<th> valor </th>";
+echo"</tr>";
+while ($volcado=each($array)) {
+	echo"<tr>";
+	echo "<td> $volcado[0] </td>";
+	echo "<td> $volcado[1] </td>";
+	echo"</tr>";
+}
+?>
+<table>
+</center>
+</body>
+</html>
