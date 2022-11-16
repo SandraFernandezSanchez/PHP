@@ -1,0 +1,17 @@
+<?php 
+    $personas = [
+        ["Jorge",1],
+        ["Bea",0],
+        ["Paco",1],
+        ["Amparo",0],
+    ];
+
+    
+    $array = array_map(function($item){
+        return (($item[1]==0)?'SeÃ±ora':'SeÃ±or') . " " . $item[0] . " ";
+    }, $personas);
+    print_r($array)
+
+    
+
+?>
