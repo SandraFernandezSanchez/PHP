@@ -1,0 +1,47 @@
+<?php
+$coso = 15;
+$cosa = 3;
+?>
+<html>
+    <head>
+        <title></title>
+        <style>
+             body{
+                width:800px;
+                height:500px;
+             }
+            table{
+                margin: 0 auto;
+                border-collapse:collapse;
+                border:1px solid black;
+                width:300px;
+                height:150px;
+            }
+            td{
+                text-align:center;
+                border:1px solid black;
+                width:50%:
+            }
+        </style>
+    <body>
+        <table>
+            <th colspan="2"><?php echo $coso . " " . $cosa?></th>
+            <tr>
+                <td><?php echo $coso + $cosa?></td>
+                <td>+</td>
+            </tr>
+            <tr>
+                <td><?php echo $coso - $cosa?></td>
+                <td>-</td>
+            </tr>  
+            <tr>
+                <td><?php echo $coso * $cosa?></td>
+                <td>x</td>
+            </tr>  
+            <tr>
+                <td><?php echo $coso / $cosa?></td>
+                <td>/</td>
+            </tr>  
+        </table>
+    </body>
+</html>
