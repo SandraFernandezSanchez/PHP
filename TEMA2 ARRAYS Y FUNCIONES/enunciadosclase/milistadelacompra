@@ -1,0 +1,112 @@
+<?php 
+$productos = [
+    "naranja" => 1.2,
+    "manzana" => 1.5,
+    "pera" => 1.8,
+    "platano" => 0.8,
+    "kiwi" => 0.75,
+    "macarrones" => 0.5,
+    "arroz" => 0.75,
+    "salchichas" => 1,
+    "patatas_fritas" => 3,
+    "paninis" => 1.5,
+    "leche_6_uds" => 5,
+    "pizza_jamon_serrano" => 2.59,
+    "helado_chocolate" => 2.99
+];
+
+$comprando = false;
+
+function pintaOutInputs($precio,$nombre){
+	echo "$nombre ($precio) <input type='number' value='0' name='$nombre'> <br> "; //importante este name porque sera el key del get
+}
+
+$comprados=array_filter($_GET,function ($valor){return($valor>0);});
+echo"++++++++++++++++++comprados<br>";
+print_r($comprados);//naranja=>4
+
+//precio de los comprados
+$producto_precio=array_intersect_key($productos,$comprados);//me devuelve la clave y el valor del primer array cuya clave coincida con el segundo 
+echo"+++++++++++++prodprecio<br>";
+print_r($producto_precio); //naranja=>1.2
+
+
+if(count($_GET)>0) {
+    $comprando = true;
+
+    echo "<br>GET: ";
+    print_r($_GET);
+}
+ 
+$precios=array_values($producto_precio);
+echo"+++++++++++++++++precios<br>";
+print_r($precios);
+
+$nombres=array_keys($producto_precio);
+echo"++++++++++++++nombres<br>";
+
+print_r($nombres);
+
+$cantidades=array_values($comprados);
+echo"++++++++++++++++cantidades<br>";
+
+print_r($cantidades);
+
+$datos=[];
+for($i=0;$i<count($precios);$i++){
+$datos[$i]=[$precios[$i],$nombres[$i],$cantidades[$i]];
+}
+echo"+++++++++++++++++datos<br>";
+
+print_r($datos);
+function total($acum, $item){
+	$acum+=$item[0]*$item[2];
+	return $acum;
+	
+}
+$total=array_reduce($datos,'total');
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form > span {
+            display: inline-block;
+            width: 15em;
+        }
+
+        form > input[type='submit'] {
+            margin-left: 15em;
+        }
+
+        table, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <?php if(!$comprando) { ?>
+        <h1>¡¡¡Ofertas!!!</h1>
+        <form method="get">
+            <?php array_walk($productos, 'pintaOutInputs') ?> <!--si no esta comprando muestra los productos y sus precios-->
+            <input type="submit" value="¡Compra!">
+        </form>
+    <?php } else { ?>
+        <h1>¡¡¡Comprando!!!</h1>
+        <table>
+            <?php echo "<tr><td>precio</td><td>nombre</td><td>cantidad</td></Tr>"   ?>
+			<?php foreach($datos as $datopeque){echo "<tr><td>$datopeque[0]</td><td> $datopeque[1]</td><td>$datopeque[2]</td></tr>";} ?>
+			<?php echo "<tr><td colspan='3'>precio total a pagar</td></Tr>"   ?>
+			<?php echo "<tr align='center'><td colspan='3'> $total </td></Tr>"   ?>
+			<?php ?>
+	   </table>
+        <a href="lista de la compra.php">Volver a calcular</a>
+    <?php } ?>
+</body>
+</html>
